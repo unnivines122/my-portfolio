@@ -1,0 +1,1409 @@
+<html><head>
+    
+    <style type="text/css">.turbo-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition:
+      width 300ms ease-out,
+      opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+  .scroll-effect {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Slightly move down */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+        }
+
+        /* Style for when elements are visible */
+        .scroll-effect.visible {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move to original position */
+        }
+  </style><style id="st_globalStyles">
+  /* MEDIA QUERIES */
+  .anima-desktop-only {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+        /* Styles for elements coming from both sides */
+        .scroll-effect-2l, .scroll-effect-2r {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+        }
+
+        /* Style for coming from the left */
+        .scroll-effect-2l {
+            transform: translateX(-100px); /* Start off-screen left */
+        }
+
+        /* Style for coming from the right */
+        .scroll-effect-2r {
+            transform: translateX(100px); /* Start off-screen right */
+        }
+
+        /* When visible */
+        .scroll-effect-2l.visible, .scroll-effect-2r.visible {
+            opacity: 1; /* Fully visible */
+            transform: translateX(0); /* Move to original position */
+        }
+
+  /* SCROLLBAR */
+  
+  [dark-scroll]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  [dark-scroll]::-webkit-scrollbar-track-piece {
+    background-color: #2b2b2b;
+    border: 1px solid #1d1d1d;
+  }
+  
+  [dark-scroll]::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: #4d4d4d;
+  }
+  [dark-scroll]::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
+  }
+  
+  /* LOAD PROGRESS */
+  
+  .turbolinks-progress-bar {
+    height: 3px;
+    background-color: #ff6250;
+  }
+  
+  /* GROUPING */
+  
+  [data-id].ui-selecting {
+    box-shadow: inset 0 0 0 1px #4285f4 !important;
+  }
+  [data-id].ui-selected {
+    box-shadow: inset 0 0 0 1px #4285f4 !important;
+  }
+  
+  /* CURSOR */
+  
+  body[mode='comments'] * {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+        0 24,
+      auto !important;
+  }
+  
+  body[mode='code'] [data-id]:not(.hidden) {
+    cursor: default;
+  }
+  
+  /* default node state */
+  
+  body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+    pointer-events: all;
+  }
+  
+  /* is_image */
+  
+  body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+    pointer-events: none !important;
+  }
+  
+  /* without a data-id or ignored */
+  
+  [data-id].ignore,body[mode='code'] *:not([data-id]) {
+    pointer-events: none !important;
+  }
+  /* disable transforms for ignored elements */
+  
+  
+  body[mode='code'] [data-id]:hover{
+    transform: none !important;
+  }
+  
+  /* ANIMA BUTTONS */
+  .an-button {
+    position: relative;
+    height: 28px;
+    padding: 0 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    transition-property: all;
+    transition-duration: 100ms;
+    appearance: none;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    border-width: 0;
+  }
+  
+  .an-button > div {
+    width: 100%;
+  }
+  
+  .an-button.primary {
+    background: #ff6250;
+    color: #ffffff;
+  }
+  
+  .an-button.primary:hover:not(:disabled) {
+    background: #e2412e;
+  }
+  
+  .an-button.secondary {
+    background: transparent;
+    border: 1px solid #ff6250;
+    color: #ff6250;
+  }
+  
+  .an-button.secondary:hover:not(:disabled) {
+    color: #ffffff;
+    background: #ff6250;
+  }
+  
+  .an-button.rounded {
+    border-radius: 100px;
+  }
+  
+  .an-button:disabled {
+    opacity: 0.5;
+  }
+  
+  .an-button:disabled {
+    cursor: default;
+  }
+  
+  .an-button:active,
+  .an-button:focus {
+    outline: none;
+  }
+  
+  </style><script id="anima-load-script" src="load.js"></script><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+      .hotspot {
+        position: absolute;
+        border: 1px solid #2a9fd8;
+        background: rgba(0, 173, 255, 0.54);
+        opacity: 0;
+        z-index: -1;
+        pointer-events:none;
+      }
+    </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  
+  @import url("https://fonts.googleapis.com/css?family=Alatsi:400|Konkhmer+Sleokchher:400|Anek+Kannada:400|ABeeZee:400|Inter:400|Alegreya+Sans:400");
+  
+  /* The following line is used to measure usage of this code. You can remove it if you want. */
+  @import url("https://px.animaapp.com/67270ee1f80466cf849458e3.67270ee1f80466cf849458e6.2P1SGAi.hch.png");
+  
+  
+  .screen textarea:focus,
+  .screen input:focus {
+    outline: none;
+  }
+  
+  .screen * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  
+  .screen div {
+    -webkit-text-size-adjust: none;
+  }
+  
+  .component-wrapper a {
+    display: contents;
+    pointer-events: auto;
+    text-decoration: none;
+  }
+  
+  .component-wrapper * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .component-wrapper a *,
+  .component-wrapper input,
+  .component-wrapper video,
+  .component-wrapper iframe {
+    pointer-events: auto;
+  }
+  
+  .component-wrapper.not-ready,
+  .component-wrapper.not-ready * {
+    visibility: hidden !important;
+  }
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .full-width-a {
+    width: 100%;
+  }
+  
+  .full-height-a {
+    height: 100%;
+  }
+  
+  .container-center-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .container-center-vertical > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .auto-animated div {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated input {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated .container-center-vertical,
+  .auto-animated .container-center-horizontal {
+    opacity: 1;
+  }
+  
+  .overlay-base {
+    display: none;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .overlay-base.animate-appear {
+    align-items: center;
+    animation: reveal 0.3s ease-in-out 1 normal forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  .overlay-base.animate-disappear {
+    animation: reveal 0.3s ease-in-out 1 reverse forwards;
+    display: block;
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  .overlay-base.animate-disappear * {
+    pointer-events: none;
+  }
+  
+  @keyframes reveal {
+    from { opacity: 0 }
+   to { opacity: 1 }
+  }
+  
+  .animate-nodelay {
+    animation-delay: 0s;
+  }
+  
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  
+  .align-self-flex-end {
+    align-self: flex-end;
+  }
+  
+  .align-self-flex-center {
+    align-self: flex-center;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .valign-text-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .listeners-active,
+  .listeners-active * {
+    pointer-events: auto;
+  }
+  
+  .hidden,
+  .hidden * {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  .listeners-active-click,
+  .listeners-active-click * {
+    cursor: pointer;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  :root { 
+    --amber: #f8bf05;
+    --black: #000000;
+    --cape-cod: #414242;
+    --seashell: #f3f0f04f;
+    --shark: #272829;
+    --silver: #bcbcbc;
+    --white: #ffffff;
+   
+    --font-size-l: 48px;
+    --font-size-m: 40px;
+    --font-size-s: 32px;
+    --font-size-xl: 55px;
+    --font-size-xs: 30px;
+    --font-size-xxl: 64px;
+    --font-size-xxxl: 96px;
+   
+    --font-family-abeezee: "ABeeZee", Helvetica;
+    --font-family-alatsi: "Alatsi", Helvetica;
+    --font-family-alegreya_sans: "Alegreya Sans", Helvetica;
+    --font-family-anek_kannada: "Anek Kannada", Helvetica;
+    --font-family-inter: "Inter", Helvetica;
+    --font-family-konkhmer_sleokchher: "Konkhmer Sleokchher", Helvetica;
+  }
+  .abeezee-normal-white-32px {
+    color: var(--white);
+    font-family: var(--font-family-abeezee);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alegreyasans-normal-white-40px {
+    color: var(--white);
+    font-family: var(--font-family-alegreya_sans);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-cape-cod-64px {
+    color: var(--cape-cod);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .anekkannada-normal-silver-30px {
+    color: var(--silver);
+    font-family: var(--font-family-anek_kannada);
+    font-size: var(--font-size-xs);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-white-96px {
+    color: var(--white);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  :root {
+  }
+  
+  
+  /* screen - frame-4 */
+  
+  .frame-4 {
+    background-color: var(--shark);
+    height: 1518px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .frame-4 .skill-expertise-UlqJXo {
+    background-color: transparent;
+    color: transparent;
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: 493px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 467px;
+    width: 663px;
+  }
+  
+  .frame-4 .span0-Lzvhez {
+    font-style: normal;
+  }
+  
+  .frame-4 .span1-Lzvhez {
+    color: var(--amber);
+    font-style: normal;
+  }
+  
+  .frame-4 .to-be-a-part-of-an-e-UlqJXo {
+    background-color: transparent;
+    height: auto;
+    left: 500px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 635px;
+    width: 614px;
+  }
+  
+  .frame-4 .vector-3-UlqJXo {
+    background-color: transparent;
+    height: 24px;
+    left: 493px;
+    position: absolute;
+    top: 636px;
+    width: 14px;
+  }
+  
+  .frame-4 .vector-4-UlqJXo {
+    background-color: transparent;
+    height: 24px;
+    left: 486px;
+    position: absolute;
+    top: 636px;
+    width: 14px;
+  }
+  
+  .frame-4 .line-15-UlqJXo {
+    background-color: transparent;
+    height: 3px;
+    left: 421px;
+    position: absolute;
+    top: 1451px;
+    width: 598px;
+  }
+  
+  .frame-4 .line-16-UlqJXo {
+    background-color: transparent;
+    height: 3px;
+    left: 445px;
+    position: absolute;
+    top: 75px;
+    width: 598px;
+  }
+  </style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><style id="action-links-styles">
+  @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+  
+  #anima-interface{
+    transition: all 0.5s ease-in-out;
+  }
+  
+  #anima-watermark {
+    transition: all 0.5s ease-in-out;
+    display: none;
+  }
+  #anima-watermark-link{
+    position: fixed;
+    bottom:20px;
+    height:30px;
+    border-radius: 1000px;
+    background: #3B3B3B;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    text-decoration:none;
+    color:#fff;
+    padding:8px 16px 8px 11px;
+    font-family:Mulish, sans-serif;
+    font-size:12px;
+  }
+  #anima-watermark-link .text {
+    margin-left: 6px;
+  }
+  
+  .omniview-anima-action-links .link{
+    height: 30px;
+    width: 30px;
+    border-radius: 1000px;
+    background: #3B3B3B;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    text-decoration:none;
+    color:#fff;
+  }
+  .omniview-anima-action-links #comment-link .text,.omniview-anima-action-links #code-link .text{
+    display:none;
+    font-size:12px;
+    margin-right:5px;
+  }
+  .omniview-anima-action-links #comment-link:hover,.omniview-anima-action-links #code-link:hover{
+    width:105px;
+  }
+  .omniview-anima-action-links #comment-link.pop-active,.omniview-anima-action-links #code-link.pop-active{
+    width:105px;
+    background: #FF6250;
+  }
+  .omniview-anima-action-links #comment-link.pop-active .text,.omniview-anima-action-links #code-link.pop-active .text{
+    display:block
+  }
+  .omniview-anima-action-links #comment-link:hover .text,.omniview-anima-action-links #code-link:hover .text{
+    display:block;
+  }
+  
+  .link.navigation{
+    position:fixed;
+    left:50%;
+    transform:translateX(-50%);
+    width:auto;
+    height:32px;
+    color:#fff;
+    font-size:12px;
+    cursor:default;
+    padding:0 5px;
+  }
+  .link.navigation .icon{
+    margin:0 6px;
+    fill:none;
+    stroke:currentColor;
+    cursor:pointer;
+  }
+  .link.navigation .icon.disabled{
+    opacity:0.5;
+    cursor:default;
+  }
+  
+  
+  .link.navigation .home-icon{
+    margin-left:6px;
+    fill:currentColor;
+    stroke:currentColor;
+    cursor:pointer;
+  }
+  
+  .omniview-anima-action-links .restart{
+    height: 30px;
+    padding:0 12px;
+    background: #3B3B3B;
+    border-radius: 1000px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#f1f1f1;
+    font-size: 12px;
+  }
+  
+  .omniview-anima-action-links{
+    display:flex;
+    align-items:center;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    font-family:Mulish, sans-serif;
+    transition: all 0.5s ease-in-out;
+    opacity:1;
+  }
+  
+  .omniview-anima-action-links > * + *{
+     margin-right: 0;
+     margin-left: 10px;
+  }
+  
+  .idle{
+    opacity:0;
+    pointer-events:none;
+  }
+  
+  #popoverOpener {
+    position: absolute;
+    left: 50%;
+    margin-left: -10vw;
+    text-align: center;
+    top: 45vh;
+    width: 20vw;
+  }
+  
+  
+  .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: none;
+    font-family: "sans-serif";
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }
+  
+  .popover.top {
+    margin-top: -12px
+  }
+  
+  .popover.right {
+    margin-left: 10px
+  }
+  
+  .popover.bottom {
+    margin-top: 10px
+  }
+  
+  .popover.left {
+    margin-left: -10px
+  }
+  
+  .popover-title {
+    padding: 8px 14px;
+    margin: 0;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 5px 5px 0 0
+  }
+  
+  .popover-content {
+    height: 100%;
+    width: 100%;
+    display:flex;
+    overflow:hidden;
+    font-family:Mulish, sans-serif;
+  }
+  
+  
+  
+  .popover>.arrow,.popover>.arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid
+  }
+  
+  .popover>.arrow {
+    border-width: 11px
+  }
+  
+  .popover>.arrow:after {
+    content: "";
+    border-width: 10px
+  }
+  
+  .popover.top>.arrow {
+    bottom: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-color: #999;
+    border-top-color: rgba(0,0,0,.25);
+    border-bottom-width: 0
+  }
+  
+  .popover.top>.arrow:after {
+    bottom: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-color: #fff;
+    border-bottom-width: 0
+  }
+  
+  .popover.right>.arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-right-color: #999;
+    border-right-color: rgba(0,0,0,.25);
+    border-left-width: 0
+  }
+  
+  .popover.right>.arrow:after {
+    bottom: -10px;
+    left: 1px;
+    content: " ";
+    border-right-color: #fff;
+    border-left-width: 0
+  }
+  
+  .popover.bottom>.arrow {
+    top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0,0,0,.25)
+  }
+  
+  .popover.bottom>.arrow:after {
+    top: 1px;
+    margin-left: -10px;
+    content: " ";
+    border-top-width: 0;
+    border-bottom-color: #fff
+  }
+  
+  .popover.left>.arrow {
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+    border-right-width: 0;
+    border-left-color: #999;
+    border-left-color: rgba(0,0,0,.25)
+  }
+  
+  .popover.left>.arrow:after {
+    right: 1px;
+    bottom: -10px;
+    content: " ";
+    border-right-width: 0;
+    border-left-color: #fff
+  }
+  
+  
+  
+  #anima-comment-popover,#anima-code-popover{
+    background:#333333;
+    color:#fff;
+  }
+  
+  #anima-comment-popover.top>.arrow,#anima-comment-popover.top>.arrow:after,#anima-code-popover.top>.arrow:after,#anima-code-popover.top>.arrow {
+    border-top-color:#333;
+  }
+  
+  #anima-comment-popover .btn,#anima-code-popover .btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 20px;
+    background: #FF6250;
+    color:#fff;
+    border-radius: 100px;
+    width: max-content;
+    text-decoration:none;
+  }
+  
+  @media screen and (max-width: 550px) {
+    #anima-watermark-link {
+      padding: 6px !important;
+    }
+    #anima-watermark-link .text {
+      display: none !important;
+    }
+  }
+  
+  </style><style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  
+  @import url("https://fonts.googleapis.com/css?family=Alatsi:400|Konkhmer+Sleokchher:400|Anek+Kannada:400|ABeeZee:400|Inter:400|Alegreya+Sans:400");
+  
+  /* The following line is used to measure usage of this code. You can remove it if you want. */
+  @import url("https://px.animaapp.com/67270ee1f80466cf849458e3.67270ee1f80466cf849458e6.2P1SGAi.hch.png");
+  
+  
+  .screen textarea:focus,
+  .screen input:focus {
+    outline: none;
+  }
+  
+  .screen * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  
+  .screen div {
+    -webkit-text-size-adjust: none;
+  }
+  
+  .component-wrapper a {
+    display: contents;
+    pointer-events: auto;
+    text-decoration: none;
+  }
+  
+  .component-wrapper * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .component-wrapper a *,
+  .component-wrapper input,
+  .component-wrapper video,
+  .component-wrapper iframe {
+    pointer-events: auto;
+  }
+  
+  .component-wrapper.not-ready,
+  .component-wrapper.not-ready * {
+    visibility: hidden !important;
+  }
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .full-width-a {
+    width: 100%;
+  }
+  
+  .full-height-a {
+    height: 100%;
+  }
+  
+  .container-center-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .container-center-vertical > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .auto-animated div {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated input {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated .container-center-vertical,
+  .auto-animated .container-center-horizontal {
+    opacity: 1;
+  }
+  
+  .overlay-base {
+    display: none;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .overlay-base.animate-appear {
+    align-items: center;
+    animation: reveal 0.3s ease-in-out 1 normal forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  .overlay-base.animate-disappear {
+    animation: reveal 0.3s ease-in-out 1 reverse forwards;
+    display: block;
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  .overlay-base.animate-disappear * {
+    pointer-events: none;
+  }
+  
+  @keyframes reveal {
+    from { opacity: 0 }
+   to { opacity: 1 }
+  }
+  
+  .animate-nodelay {
+    animation-delay: 0s;
+  }
+  
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  
+  .align-self-flex-end {
+    align-self: flex-end;
+  }
+  
+  .align-self-flex-center {
+    align-self: flex-center;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .valign-text-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .listeners-active,
+  .listeners-active * {
+    pointer-events: auto;
+  }
+  
+  .hidden,
+  .hidden * {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  .listeners-active-click,
+  .listeners-active-click * {
+    cursor: pointer;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  :root { 
+    --amber: #f8bf05;
+    --black: #000000;
+    --cape-cod: #414242;
+    --seashell: #f3f0f04f;
+    --shark: #272829;
+    --silver: #bcbcbc;
+    --white: #ffffff;
+   
+    --font-size-l: 48px;
+    --font-size-m: 40px;
+    --font-size-s: 32px;
+    --font-size-xl: 55px;
+    --font-size-xs: 30px;
+    --font-size-xxl: 64px;
+    --font-size-xxxl: 96px;
+   
+    --font-family-abeezee: "ABeeZee", Helvetica;
+    --font-family-alatsi: "Alatsi", Helvetica;
+    --font-family-alegreya_sans: "Alegreya Sans", Helvetica;
+    --font-family-anek_kannada: "Anek Kannada", Helvetica;
+    --font-family-inter: "Inter", Helvetica;
+    --font-family-konkhmer_sleokchher: "Konkhmer Sleokchher", Helvetica;
+  }
+  .abeezee-normal-white-32px {
+    color: var(--white);
+    font-family: var(--font-family-abeezee);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alegreyasans-normal-white-40px {
+    color: var(--white);
+    font-family: var(--font-family-alegreya_sans);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-cape-cod-64px {
+    color: var(--cape-cod);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .anekkannada-normal-silver-30px {
+    color: var(--silver);
+    font-family: var(--font-family-anek_kannada);
+    font-size: var(--font-size-xs);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-white-96px {
+    color: var(--white);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  :root {
+  }
+  
+  
+  /* screen - frame-5 */
+  
+  .frame-5 {
+    background-color: #e7e7e7;
+    height: 8211px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .frame-5 .ascent-posterpsd2-recovered-1-mg48iN {
+    background-color: transparent;
+    height: 396px;
+    left: 298px;
+    object-fit: cover;
+    position: absolute;
+    top: 352px;
+    width: 392px;
+  }
+  
+  .frame-5 .iq-tech-1-mg48iN {
+    background-color: transparent;
+    height: 402px;
+    left: 715px;
+    object-fit: cover;
+    position: absolute;
+    top: 346px;
+    width: 400px;
+  }
+  
+  .frame-5 .iiq-tech-1-1-mg48iN {
+    background-color: transparent;
+    height: 408px;
+    left: 288px;
+    object-fit: cover;
+    position: absolute;
+    top: 772px;
+    width: 405px;
+  }
+  
+  .frame-5 .whats-app-image-2023-mg48iN {
+    background-color: transparent;
+    height: 411px;
+    left: 717px;
+    object-fit: cover;
+    position: absolute;
+    top: 777px;
+    width: 410px;
+  }
+  
+  .frame-5 .web-development27-1-mg48iN {
+    background-color: transparent;
+    height: 410px;
+    left: 292px;
+    object-fit: cover;
+    position: absolute;
+    top: 1203px;
+    width: 407px;
+  }
+  
+  .frame-5 .video-editing-1-mg48iN {
+    background-color: transparent;
+    height: 423px;
+    left: 715px;
+    object-fit: cover;
+    position: absolute;
+    top: 1208px;
+    width: 423px;
+  }
+  
+  .frame-5 .translinelogistics123-1-mg48iN {
+    background-color: transparent;
+    height: 411px;
+    left: 295px;
+    object-fit: cover;
+    position: absolute;
+    top: 1635px;
+    width: 411px;
+  }
+  
+  .frame-5 .digital-marketing-1-mg48iN {
+    background-color: transparent;
+    height: 409px;
+    left: 723px;
+    object-fit: cover;
+    position: absolute;
+    top: 1631px;
+    width: 409px;
+  }
+  
+  .frame-5 .holi-transline-1-mg48iN {
+    background-color: transparent;
+    height: 407px;
+    left: 293px;
+    object-fit: cover;
+    position: absolute;
+    top: 2068px;
+    width: 406px;
+  }
+  
+  .frame-5 .title-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 434px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 190px;
+    width: auto;
+  }
+  
+  .frame-5 .flyer-design-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 555px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 2625px;
+    width: auto;
+  }
+  
+  .frame-5 .transline-flyer-01-1-mg48iN {
+    background-color: transparent;
+    height: 959px;
+    left: 285px;
+    object-fit: cover;
+    position: absolute;
+    top: 2794px;
+    width: 814px;
+  }
+  
+  .frame-5 .transline-flyer-01-2-mg48iN {
+    background-color: transparent;
+    height: 960px;
+    left: 338px;
+    object-fit: cover;
+    position: absolute;
+    top: 2772px;
+    width: 815px;
+  }
+  
+  .frame-5 .transline-flyer-01-3-mg48iN {
+    background-color: transparent;
+    height: 960px;
+    left: 381px;
+    object-fit: cover;
+    position: absolute;
+    top: 2802px;
+    width: 815px;
+  }
+  
+  .frame-5 .malayshia-recovered-1-mg48iN {
+    background-color: transparent;
+    height: 420px;
+    left: 725px;
+    object-fit: cover;
+    position: absolute;
+    top: 2065px;
+    width: 418px;
+  }
+  
+  .frame-5 .brochure-design-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 484px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 3825px;
+    width: auto;
+  }
+  
+  .frame-5 .logo-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 565px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 4950px;
+    width: auto;
+  }
+  
+  .frame-5 .branding-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 720px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 4950px;
+    width: auto;
+  }
+  
+  .frame-5 .web-design-mg48iN {
+    background-color: transparent;
+    height: auto;
+    left: 563px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 6972px;
+    width: auto;
+  }
+  
+  .frame-5 .logo-with-real-estate-conversation-01-1-mg48iN {
+    background-color: transparent;
+    height: 1724px;
+    left: 135px;
+    object-fit: cover;
+    position: absolute;
+    top: 5087px;
+    width: 1170px;
+  }
+  
+  .frame-5 .untitled-1-1-mg48iN {
+    background-color: transparent;
+    height: 1335px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 3890px;
+    width: 1440px;
+  }
+  
+  .frame-5 .orh93-n1-1-mg48iN {
+    background-color: transparent;
+    height: 1108px;
+    left: 0px;
+    object-fit: cover;
+    position: absolute;
+    top: 7103px;
+    width: 1662px;
+  }
+  </style><meta charset="utf-8"><meta name="viewport" content="width=1440, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"></head><body style="margin: 0px; background: rgb(231, 231, 231); overflow-x: hidden;" dark-scroll=""><input type="hidden" id="anPageName" name="page" value="frame-5">
+      <div class="container-center-horizontal">
+        <div class="frame-5 screen" data-id="151:3">
+            <img class="ascent-posterpsd2-recovered-1-mg48iN scroll-effect-2l" data-id="151:2" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/ascent-poster-psd2-recovered-1.png" alt="ascent poster.psd2-Recovered 1">
+            <img class="iq-tech-1-mg48iN scroll-effect-2r" data-id="151:7" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/iq-tech-1@2x.png" alt="iq tech 1">
+            <img class="iiq-tech-1-1-mg48iN scroll-effect-2l" data-id="151:9" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/iiq-tech-1-1@2x.png" alt="iiq tech 1 1">
+            <img class="whats-app-image-2023-mg48iN scroll-effect-2r" data-id="151:10" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/whatsapp-image-2023-08-01-at-10-23-21-pm--1--1@2x.png" alt="WhatsApp Image 2023-08-01 at 10.23.21 PM (1) 1">
+            <img class="web-development27-1-mg48iN scroll-effect-2l" data-id="151:11" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/web-development27-1@2x.png" alt="web development27 1">
+            <img class="video-editing-1-mg48iN scroll-effect-2r" data-id="151:12" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/video-editing-1@2x.png" alt="video editing 1">
+            <img class="translinelogistics123-1-mg48iN scroll-effect-2l" data-id="151:14" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/translinelogistics123-1@2x.png" alt="translinelogistics123 1">
+            <img class="digital-marketing-1-mg48iN scroll-effect-2r" data-id="151:16" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/digital-marketing-1@2x.png" alt="digital marketing 1">
+            <img class="holi-transline-1-mg48iN scroll-effect-2l" data-id="151:17" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/holi-transline-1@2x.png" alt="holi transline 1">
+            <h1 class="title-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="151:19">Social media poster</h1>
+            <div class="flyer-design-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="154:5">Flyer Design</div>
+            <img class="transline-flyer-01-1-mg48iN scroll-effect" data-id="154:6" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/transline-flyer-01-1.png" alt="TRANSLINE flyer-01 1">
+            <img class="transline-flyer-01-2-mg48iN scroll-effect" data-id="154:7" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/transline-flyer-01-1.png" alt="TRANSLINE flyer-01 2">
+            <img class="transline-flyer-01-3-mg48iN scroll-effect" data-id="154:8" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/transline-flyer-01-1.png" alt="TRANSLINE flyer-01 3">
+            <img class="malayshia-recovered-1-mg48iN scroll-effect-2r" data-id="154:10" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/malayshia-recovered-1@2x.png" alt="malayshia-Recovered 1">
+            <div class="brochure-design-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="154:9">Brochure Design</div>
+            <div class="logo-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="158:16">Logo</div>
+            <div class="branding-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="158:18">Branding</div>
+            <div class="web-design-mg48iN alatsi-normal-cape-cod-64px scroll-effect" data-id="158:20">Web Design</div>
+            <img class="logo-with-real-estate-conversation-01-1-mg48iN scroll-effect" data-id="158:17" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/logo-with-real-estate--conversation-01-1.png" alt="logo with real estate conversation-01 1">
+            <img class="untitled-1-1-mg48iN scroll-effect" data-id="162:27" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/untitled-1-1.png" alt="Untitled-1 1">
+            <img class="orh93-n1-1-mg48iN scroll-effect" data-id="162:28" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/orh93n1-1.png" alt="ORH93N1 1">
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.scroll-effect, .scroll-effect-2l, .scroll-effect-2r').forEach((element) => {
+            const elementInView = (el) => {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= window.innerHeight && rect.bottom >= 0
+                );
+            };
+
+            const displayScrollElement = (el) => {
+                el.classList.add('visible');
+            };
+
+            const handleScrollAnimation = () => {
+                if (element.classList.contains('scroll-effect-2l')) {
+                    elementInView(element) ? displayScrollElement(element) : element.classList.remove('visible');
+                } else if (element.classList.contains('scroll-effect-2r')) {
+                    elementInView(element) ? displayScrollElement(element) : element.classList.remove('visible');
+                } else {
+                    elementInView(element) ? displayScrollElement(element) : element.classList.remove('visible');
+                }
+            };
+
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation(); // Check elements on page load
+        });
+    </script>
+</body></html>
