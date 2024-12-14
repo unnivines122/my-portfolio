@@ -437,7 +437,7 @@ j.turbo-progress-bar {
     width: 1440px;
   }
   
-  .frame-1 .rectangle-15-VxPVnb {
+  .rectangle-15-VxPVnb {
     background-color: transparent;
     height: 902px;
     left: 0px;
@@ -446,7 +446,7 @@ j.turbo-progress-bar {
     width: 1440px;
   }
   
-  .frame-1 .rectangle-16-VxPVnb {
+  .rectangle-16-VxPVnb {
     background-color: transparent;
     height: 2649px;
     left: 120px;
@@ -455,7 +455,19 @@ j.turbo-progress-bar {
     width: 1216px;
   }
   
-  .frame-1 .line-3-VxPVnb {
+/* Styles for smaller screens */
+@media screen and (max-width: 480px) {
+  .rectangle-16-VxPVnb {
+      left: 350px; /* Adjust left position for smaller screens */
+      top: 900px; /* Adjust top position */
+      font-size: var(--font-size-md); /* Reduce font size */
+      font-weight: 400;
+  }
+}
+
+
+
+  .line-3-VxPVnb {
     background-color: transparent;
     height: 303px;
     left: 733px;
@@ -465,7 +477,7 @@ j.turbo-progress-bar {
   }
   
 /* Base styles */
-.frame-1 .porttfolio-VxPVnb {
+.porttfolio-VxPVnb {
   background-color: transparent;
   color: var(--amber);
   font-family: var(--font-family-konkhmer_sleokchher);
@@ -484,7 +496,7 @@ j.turbo-progress-bar {
 
 /* Styles for smaller screens */
 @media screen and (max-width: 768px) {
-  .frame-1 .porttfolio-VxPVnb {
+  .porttfolio-VxPVnb {
       left: 400px; /* Adjust left position for smaller screens */
       top: 300px; /* Adjust top position */
       font-size: var(--font-size-lg); /* Reduce font size */
@@ -494,7 +506,7 @@ j.turbo-progress-bar {
 
 /* Styles for very small screens (e.g., mobile phones) */
 @media screen and (max-width: 480px) {
-  .frame-1 .porttfolio-VxPVnb {
+  .porttfolio-VxPVnb {
       left: 600px; /* Adjust left position further */
       top: 300px; /* Adjust top position */
       font-size: var(--font-size-md); /* Further reduce font size */
@@ -504,7 +516,7 @@ j.turbo-progress-bar {
 }
 
   
-  .frame-1 .graphic-designer-VxPVnb {
+  .graphic-designer-VxPVnb {
     background-color: transparent;
     color: var(--silver);
     font-family: var(--font-family-konkhmer_sleokchher);
@@ -523,7 +535,7 @@ j.turbo-progress-bar {
 
   /* Styles for smaller screens */
 @media screen and (max-width: 768px) {
-  .frame-1 .graphic-designer-VxPVnb {
+  .graphic-designer-VxPVnb {
       left: 390px; /* Adjust left position for smaller screens */
       top: 379px; /* Adjust top position */
       font-size: var(--font-size-lg); /* Reduce font size */
@@ -533,7 +545,7 @@ j.turbo-progress-bar {
 
 /* Styles for very small screens (e.g., mobile phones) */
 @media screen and (max-width: 480px) {
-  .frame-1 .graphic-designer-VxPVnb {
+  .graphic-designer-VxPVnb {
       left: 600px; /* Adjust left position further */
       top: 379px; /* Adjust top position */
       font-size: var(--font-size-md); /* Further reduce font size */
@@ -543,7 +555,7 @@ j.turbo-progress-bar {
 }
   
 /* Base styles */
-.frame-1 .title-VxPVnb {
+.title-VxPVnb {
   background-color: transparent;
   color: #ffffff70;
   font-family: var(--font-family-konkhmer_sleokchher);
@@ -563,7 +575,7 @@ j.turbo-progress-bar {
 
 /* Styles for tablets and smaller screens */
 @media screen and (max-width: 1024px) {
-  .frame-1 .title-VxPVnb {
+  .title-VxPVnb {
       font-size: 180px; /* Reduce font size */
       left: 172px; /* Adjust left position */
       top: 480px; /* Adjust top position */
@@ -573,7 +585,7 @@ j.turbo-progress-bar {
 
 /* Styles for smaller screens (e.g., tablets, mobile phones) */
 @media screen and (max-width: 768px) {
-  .frame-1 .title-VxPVnb {
+  .title-VxPVnb {
       font-size: 120px; /* Further reduce font size */
       left: 392px; /* Adjust left position */
       top: 390px; /* Adjust top position */
@@ -583,7 +595,7 @@ j.turbo-progress-bar {
 
 /* Styles for very small screens (mobile phones) */
 @media screen and (max-width: 480px) {
-  .frame-1 .title-VxPVnb {
+  .title-VxPVnb {
       font-size: 80px; /* Significantly reduce font size */
       left: 542px; /* Adjust left position */
       top: 390px; /* Adjust top position */
@@ -593,7 +605,7 @@ j.turbo-progress-bar {
 }
 
   
-  .frame-1 .about-me-VxPVnb {
+  .about-me-VxPVnb {
     background-color: transparent;
     cursor: pointer;
     height: auto;
@@ -608,7 +620,7 @@ j.turbo-progress-bar {
   
 /* Styles for very small screens (mobile phones) */
 @media screen and (max-width: 480px) {
-  .frame-1 .about-me-VxPVnb {
+  .about-me-VxPVnb {
     background-color: transparent;
     cursor: pointer;
     height: auto;
@@ -622,7 +634,7 @@ j.turbo-progress-bar {
   }
 }
 
-  .frame-1 .education-VxPVnb {
+  .education-VxPVnb {
     background-color: transparent;
     cursor: pointer;
     height: auto;
@@ -635,7 +647,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
+  .jfnjkfndcfjkb-1-VxPVnb {
     background-color: transparent;
     height: 788px;
     left: 613px;
@@ -643,7 +655,7 @@ j.turbo-progress-bar {
   }
   
   @media (max-width: 768px) {
-    .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
+    .jfnjkfndcfjkb-1-VxPVnb {
     background-color: transparent;
     height: 600px;
     left: 813px;
@@ -653,7 +665,7 @@ j.turbo-progress-bar {
   }
   
   @media (max-width: 480px) {
-    .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
+    .jfnjkfndcfjkb-1-VxPVnb {
       background-color: transparent;
       height: 600px;
       left: 903px;
@@ -691,7 +703,7 @@ j.turbo-progress-bar {
   }
 
   
-  .frame-1 .skill-expertise-VxPVnb {
+  .skill-expertise-VxPVnb {
     background-color: transparent;
     cursor: pointer;
     height: auto;
@@ -704,7 +716,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .rectangle-3-VxPVnb {
+  .rectangle-3-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 165px;
@@ -714,7 +726,7 @@ j.turbo-progress-bar {
     width: 165px;
   }
   
-  .frame-1 .rectangle-10-VxPVnb {
+  .rectangle-10-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 165px;
@@ -724,7 +736,7 @@ j.turbo-progress-bar {
     width: 165px;
   }
   
-  .frame-1 .rectangle-11-VxPVnb {
+  .rectangle-11-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 156px;
@@ -734,7 +746,7 @@ j.turbo-progress-bar {
     width: 156px;
   }
   
-  .frame-1 .rectangle-12-VxPVnb {
+  .rectangle-12-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 148px;
@@ -744,7 +756,7 @@ j.turbo-progress-bar {
     width: 148px;
   }
   
-  .frame-1 .rectangle-13-VxPVnb {
+  .rectangle-13-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 155px;
@@ -754,7 +766,7 @@ j.turbo-progress-bar {
     width: 155px;
   }
   
-  .frame-1 .rectangle-9-VxPVnb {
+  .rectangle-9-VxPVnb {
     background-color: var(--seashell);
     border-radius: 45px;
     height: 165px;
@@ -764,7 +776,7 @@ j.turbo-progress-bar {
     width: 165px;
   }
   
-  .frame-1 .adobe-photoshop-logo-700x394-1-VxPVnb {
+  .adobe-photoshop-logo-700x394-1-VxPVnb {
     background-color: transparent;
     height: 94px;
     left: 383px;
@@ -774,7 +786,7 @@ j.turbo-progress-bar {
     width: 167px;
   }
   
-  .frame-1 .adobe-photoshop-logo-700x394-2-VxPVnb {
+  .adobe-photoshop-logo-700x394-2-VxPVnb {
     background-color: transparent;
     height: 183px;
     left: 656px;
@@ -784,7 +796,7 @@ j.turbo-progress-bar {
     width: 155px;
   }
   
-  .frame-1 .adobe-photoshop-logo-700x394-3-VxPVnb {
+  .adobe-photoshop-logo-700x394-3-VxPVnb {
     background-color: transparent;
     height: 103px;
     left: 926px;
@@ -794,28 +806,28 @@ j.turbo-progress-bar {
     width: 183px;
   }
   
-  .frame-1 .x65e09abf952724557f01-VxPVnb {
+  .x65e09abf952724557f01-VxPVnb {
     height: 127px;
     left: 403px;
     top: 1619px;
     width: 127px;
   }
   
-  .frame-1 .x65e09abf952724557f01-5ArFWQ {
+  .x65e09abf952724557f01-5ArFWQ {
     height: 199px;
     left: 918px;
     top: 1737px;
     width: 199px;
   }
   
-  .frame-1 .x65e09abf952724557f01-Lk3E3L {
+  .x65e09abf952724557f01-Lk3E3L {
     height: 201px;
     left: 628px;
     top: 1636px;
     width: 201px;
   }
   
-  .frame-1 .line-1-VxPVnb {
+  .line-1-VxPVnb {
     background-color: transparent;
     height: 250px;
     left: 465px;
@@ -824,7 +836,7 @@ j.turbo-progress-bar {
     width: 5px;
   }
   
-  .frame-1 .line-2-VxPVnb {
+  .line-2-VxPVnb {
     background-color: transparent;
     height: 394px;
     left: 1017px;
@@ -833,7 +845,7 @@ j.turbo-progress-bar {
     width: 5px;
   }
   
-  .frame-1 .vector-5-VxPVnb {
+  .vector-5-VxPVnb {
     background-color: transparent;
     height: 45px;
     left: 79px;
@@ -842,7 +854,7 @@ j.turbo-progress-bar {
     width: 29px;
   }
   
-  .frame-1 .vector-6-VxPVnb {
+  .vector-6-VxPVnb {
     background-color: transparent;
     height: 70px;
     left: 93px;
@@ -851,7 +863,7 @@ j.turbo-progress-bar {
     width: 45px;
   }
   
-  .frame-1 .photoshop-VxPVnb {
+  .photoshop-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 316px;
@@ -864,17 +876,17 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .x90-VxPVnb {
+  .x90-VxPVnb {
     left: 1082px;
     top: 2135px;
   }
   
-  .frame-1 .x85-VxPVnb {
+  .x85-VxPVnb {
     left: 1083px;
     top: 2236px;
   }
   
-  .frame-1 .x70-VxPVnb {
+  .x70-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 1083px;
@@ -887,7 +899,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .x65-VxPVnb {
+  .x65-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 1082px;
@@ -900,17 +912,17 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .x90-5ArFWQ {
+  .x90-5ArFWQ {
     left: 1083px;
     top: 2517px;
   }
   
-  .frame-1 .x85-5ArFWQ {
+  .x85-5ArFWQ {
     left: 1082px;
     top: 2629px;
   }
   
-  .frame-1 .ilustrator-VxPVnb {
+  .ilustrator-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 317px;
@@ -923,7 +935,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .indesign-VxPVnb {
+  .indesign-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 317px;
@@ -936,7 +948,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .primer-pro-VxPVnb {
+  .primer-pro-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 317px;
@@ -949,7 +961,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .figma-VxPVnb {
+  .figma-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 317px;
@@ -962,7 +974,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .xd-VxPVnb {
+  .xd-VxPVnb {
     background-color: transparent;
     height: auto;
     left: 317px;
@@ -975,7 +987,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .line-9-VxPVnb {
+  .line-9-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -984,7 +996,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .line-10-VxPVnb {
+  .line-10-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -993,7 +1005,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .line-11-VxPVnb {
+  .line-11-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -1002,7 +1014,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .line-12-VxPVnb {
+  .line-12-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -1011,7 +1023,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .line-13-VxPVnb {
+  .line-13-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -1020,7 +1032,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .line-14-VxPVnb {
+  .line-14-VxPVnb {
     background-color: transparent;
     height: 3px;
     left: 510px;
@@ -1029,7 +1041,7 @@ j.turbo-progress-bar {
     width: 538px;
   }
   
-  .frame-1 .my-skill-VxPVnb {
+  .my-skill-VxPVnb {
     background-color: transparent;
     color: var(--silver);
     font-family: var(--font-family-inter);
@@ -1046,7 +1058,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .rectangle-17-VxPVnb {
+  .rectangle-17-VxPVnb {
     background-color: transparent;
     height: 180px;
     left: 427px;
@@ -1055,7 +1067,7 @@ j.turbo-progress-bar {
     width: 597px;
   }
   
-  .frame-1 .my-work-VxPVnb {
+  .my-work-VxPVnb {
     background-color: transparent;
     color: #1b1b1b;
     cursor: pointer;
@@ -1073,13 +1085,13 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .x65e09abf952724557f01 {
+  .x65e09abf952724557f01 {
     background-color: transparent;
     object-fit: cover;
     position: absolute;
   }
   
-  .frame-1 .x85 {
+  .x85 {
     background-color: transparent;
     height: auto;
     letter-spacing: 0.00px;
@@ -1090,7 +1102,7 @@ j.turbo-progress-bar {
     width: auto;
   }
   
-  .frame-1 .x90 {
+  .x90 {
     background-color: transparent;
     height: auto;
     letter-spacing: 0.00px;
@@ -1594,3 +1606,61 @@ img:hover {
 
 
 
+@media screen and (max-width: 480px) {
+  .rectangle-3-VxPVnb  {
+    left: 515px; /* Adjust left position for smaller screens */ 
+    /* 383px 132 */
+  }
+  .adobe-photoshop-logo-700x394-1-VxPVnb {
+    left: 510px;
+    /* 383px 127 */
+  }
+  .line-1-VxPVnb {
+    left: 595px; /* Adjust left position for smaller screens */
+    /* 465px 130 */
+  }
+  .rectangle-13-VxPVnb{
+    left: 520px;
+    /* 389px 131 */
+  }
+  .x65e09abf952724557f01-VxPVnb{
+    left: 535px;
+    /* 403px 132 */
+  }
+
+
+  .rectangle-9-VxPVnb  {
+    left: 726px; /* Adjust left position for smaller screens */
+  }
+  .adobe-photoshop-logo-700x394-2-VxPVnb {
+    left: 743px;
+  }
+  .line-3-VxPVnb {
+    left: 823px; /* Adjust left position for smaller screens */
+  }
+  .rectangle-11-VxPVnb{
+    left: 747px;
+  }
+  .x65e09abf952724557f01-Lk3E3L{
+    left: 720px;
+  }
+
+
+  .rectangle-10-VxPVnb  {
+    left: 938px; /* Adjust left position for smaller screens */
+  }
+  .adobe-photoshop-logo-700x394-3-VxPVnb {
+    left: 940px;
+  }
+  .line-2-VxPVnb {
+    left: 1023px; /* Adjust left position for smaller screens 993 */
+  }
+  .rectangle-12-VxPVnb{
+    left: 948px;
+  }
+  .x65e09abf952724557f01-5ArFWQ{
+    left: 922px;
+  }
+
+
+}
