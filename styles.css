@@ -508,7 +508,7 @@ j.turbo-progress-bar {
 @media screen and (max-width: 480px) {
   .porttfolio-VxPVnb {
       left: 600px; /* Adjust left position further */
-      top: 300px; /* Adjust top position */
+      top: 330px; /* Adjust top position */
       font-size: var(--font-size-md); /* Further reduce font size */
       text-align: center; /* Center text for better readability */
       font-weight: 400;
@@ -546,7 +546,7 @@ j.turbo-progress-bar {
 /* Styles for very small screens (e.g., mobile phones) */
 @media screen and (max-width: 480px) {
   .graphic-designer-VxPVnb {
-      left: 600px; /* Adjust left position further */
+      left: 595px; /* Adjust left position further */
       top: 379px; /* Adjust top position */
       font-size: var(--font-size-md); /* Further reduce font size */
       text-align: center; /* Center text for better readability */
@@ -598,7 +598,7 @@ j.turbo-progress-bar {
   .title-VxPVnb {
       font-size: 80px; /* Significantly reduce font size */
       left: 542px; /* Adjust left position */
-      top: 390px; /* Adjust top position */
+      top: 380px; /* Adjust top position */
       width: 300px; /* Adjust width */
       text-align: center; /* Center the text */
   }
@@ -1608,58 +1608,58 @@ img:hover {
 
 @media screen and (max-width: 480px) {
   .rectangle-3-VxPVnb  {
-    left: 515px; /* Adjust left position for smaller screens */ 
+    left: 615px; /* Adjust left position for smaller screens */ 
     /* 383px 132 */
   }
   .adobe-photoshop-logo-700x394-1-VxPVnb {
-    left: 510px;
+    left: 610px;
     /* 383px 127 */
   }
   .line-1-VxPVnb {
-    left: 595px; /* Adjust left position for smaller screens */
+    left: 695px; /* Adjust left position for smaller screens */
     /* 465px 130 */
   }
   .rectangle-13-VxPVnb{
-    left: 520px;
+    left: 620px;
     /* 389px 131 */
   }
   .x65e09abf952724557f01-VxPVnb{
-    left: 535px;
+    left: 635px;
     /* 403px 132 */
   }
 
 
   .rectangle-9-VxPVnb  {
-    left: 726px; /* Adjust left position for smaller screens */
+    left: 880px; /* Adjust left position for smaller screens */
   }
   .adobe-photoshop-logo-700x394-2-VxPVnb {
-    left: 743px;
+    left: 893px;
   }
   .line-3-VxPVnb {
-    left: 823px; /* Adjust left position for smaller screens */
+    left: 963px; /* Adjust left position for smaller screens */
   }
   .rectangle-11-VxPVnb{
-    left: 747px;
+    left: 887px;
   }
   .x65e09abf952724557f01-Lk3E3L{
-    left: 720px;
+    left: 860px;
   }
 
 
   .rectangle-10-VxPVnb  {
-    left: 938px; /* Adjust left position for smaller screens */
+    left: 1148px; /* Adjust left position for smaller screens */
   }
   .adobe-photoshop-logo-700x394-3-VxPVnb {
-    left: 940px;
+    left: 1150px;
   }
   .line-2-VxPVnb {
-    left: 1023px; /* Adjust left position for smaller screens 993 */
+    left: 1233px; /* Adjust left position for smaller screens 993  1023px */
   }
   .rectangle-12-VxPVnb{
-    left: 948px;
+    left: 1158px;
   }
   .x65e09abf952724557f01-5ArFWQ{
-    left: 922px;
+    left: 1132px;
   }
 
 
