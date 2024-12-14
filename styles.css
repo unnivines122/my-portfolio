@@ -585,8 +585,8 @@ j.turbo-progress-bar {
 @media screen and (max-width: 480px) {
   .frame-1 .title-VxPVnb {
       font-size: 80px; /* Significantly reduce font size */
-      left: 172px; /* Adjust left position */
-      top: 100px; /* Adjust top position */
+      left: 542px; /* Adjust left position */
+      top: 390px; /* Adjust top position */
       width: 300px; /* Adjust width */
       text-align: center; /* Center the text */
   }
@@ -606,6 +606,22 @@ j.turbo-progress-bar {
     width: auto;
   }
   
+/* Styles for very small screens (mobile phones) */
+@media screen and (max-width: 480px) {
+  .frame-1 .about-me-VxPVnb {
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 1109px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 75px;
+    width: auto;
+  }
+}
+
   .frame-1 .education-VxPVnb {
     background-color: transparent;
     cursor: pointer;
