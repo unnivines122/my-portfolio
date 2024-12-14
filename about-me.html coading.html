@@ -1,4 +1,5 @@
-j.turbo-progress-bar {
+<!DOCTYPE html>
+<html><head><style type="text/css">.turbo-progress-bar {
     position: fixed;
     display: block;
     top: 0;
@@ -11,7 +12,7 @@ j.turbo-progress-bar {
       opacity 150ms 150ms ease-in;
     transform: translate3d(0, 0, 0);
   }
-
+  </style><style id="st_globalStyles">
   /* MEDIA QUERIES */
   .anima-desktop-only {
     @media (max-width: 768px) {
@@ -153,7 +154,7 @@ j.turbo-progress-bar {
     outline: none;
   }
   
-
+  </style><script id="anima-load-script" src="load.js"></script><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
       .hotspot {
         position: absolute;
         border: 1px solid #2a9fd8;
@@ -162,7 +163,7 @@ j.turbo-progress-bar {
         z-index: -1;
         pointer-events:none;
       }
-
+    </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
   @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
   
   @import url("https://fonts.googleapis.com/css?family=Alatsi:400|Konkhmer+Sleokchher:400|Anek+Kannada:400|ABeeZee:400|Inter:400|Alegreya+Sans:400");
@@ -369,8 +370,6 @@ j.turbo-progress-bar {
     --font-size-m: 40px;
     --font-size-s: 32px;
     --font-size-xl: 55px;
-    --font-size-md: 50px;
-    --font-size-lg: 70px;
     --font-size-xs: 30px;
     --font-size-xxl: 64px;
     --font-size-xxxl: 96px;
@@ -464,45 +463,22 @@ j.turbo-progress-bar {
     width: 5px;
   }
   
-/* Base styles */
-.frame-1 .porttfolio-VxPVnb {
-  background-color: transparent;
-  color: var(--amber);
-  font-family: var(--font-family-konkhmer_sleokchher);
-  font-size: var(--font-size-xl);
-  font-style: normal;
-  font-weight: 400;
-  height: auto;
-  left: 183px;
-  letter-spacing: 0.00px;
-  line-height: normal;
-  position: absolute;
-  text-align: left;
-  top: 320px;
-  width: auto;
-}
-
-/* Styles for smaller screens */
-@media screen and (max-width: 768px) {
   .frame-1 .porttfolio-VxPVnb {
-      left: 400px; /* Adjust left position for smaller screens */
-      top: 300px; /* Adjust top position */
-      font-size: var(--font-size-lg); /* Reduce font size */
-      font-weight: 400;
+    background-color: transparent;
+    color: var(--amber);
+    font-family: var(--font-family-konkhmer_sleokchher);
+    font-size: var(--font-size-xl);
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: 183px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 379px;
+    width: auto;
   }
-}
-
-/* Styles for very small screens (e.g., mobile phones) */
-@media screen and (max-width: 480px) {
-  .frame-1 .porttfolio-VxPVnb {
-      left: 600px; /* Adjust left position further */
-      top: 300px; /* Adjust top position */
-      font-size: var(--font-size-md); /* Further reduce font size */
-      text-align: center; /* Center text for better readability */
-      font-weight: 400;
-  }
-}
-
   
   .frame-1 .graphic-designer-VxPVnb {
     background-color: transparent;
@@ -517,81 +493,27 @@ j.turbo-progress-bar {
     line-height: normal;
     position: absolute;
     text-align: left;
-    top: 379px;
+    top: 429px;
     width: auto;
   }
-
-  /* Styles for smaller screens */
-@media screen and (max-width: 768px) {
-  .frame-1 .graphic-designer-VxPVnb {
-      left: 390px; /* Adjust left position for smaller screens */
-      top: 379px; /* Adjust top position */
-      font-size: var(--font-size-lg); /* Reduce font size */
-      font-weight: 400;
-  }
-}
-
-/* Styles for very small screens (e.g., mobile phones) */
-@media screen and (max-width: 480px) {
-  .frame-1 .graphic-designer-VxPVnb {
-      left: 600px; /* Adjust left position further */
-      top: 379px; /* Adjust top position */
-      font-size: var(--font-size-md); /* Further reduce font size */
-      text-align: center; /* Center text for better readability */
-      font-weight: 400;
-  }
-}
   
-/* Base styles */
-.frame-1 .title-VxPVnb {
-  background-color: transparent;
-  color: #ffffff70;
-  font-family: var(--font-family-konkhmer_sleokchher);
-  font-size: 250px;
-  font-style: normal;
-  font-weight: 600;
-  height: auto;
-  left: 172px;
-  letter-spacing: 0.00px;
-  line-height: normal;
-  position: absolute;
-  text-align: left;
-  top: 250px;
-  white-space: nowrap;
-  width: 635px;
-}
-
-/* Styles for tablets and smaller screens */
-@media screen and (max-width: 1024px) {
   .frame-1 .title-VxPVnb {
-      font-size: 180px; /* Reduce font size */
-      left: 172px; /* Adjust left position */
-      top: 480px; /* Adjust top position */
-      width: 500px; /* Reduce width */
+    background-color: transparent;
+    color: #ffffff70;
+    font-family: var(--font-family-konkhmer_sleokchher);
+    font-size: 250px;
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: 172px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 401px;
+    white-space: nowrap;
+    width: 635px;
   }
-}
-
-/* Styles for smaller screens (e.g., tablets, mobile phones) */
-@media screen and (max-width: 768px) {
-  .frame-1 .title-VxPVnb {
-      font-size: 120px; /* Further reduce font size */
-      left: 392px; /* Adjust left position */
-      top: 390px; /* Adjust top position */
-      width: 400px; /* Adjust width */
-  }
-}
-
-/* Styles for very small screens (mobile phones) */
-@media screen and (max-width: 480px) {
-  .frame-1 .title-VxPVnb {
-      font-size: 80px; /* Significantly reduce font size */
-      left: 172px; /* Adjust left position */
-      top: 100px; /* Adjust top position */
-      width: 300px; /* Adjust width */
-      text-align: center; /* Center the text */
-  }
-}
-
   
   .frame-1 .about-me-VxPVnb {
     background-color: transparent;
@@ -622,58 +544,11 @@ j.turbo-progress-bar {
   .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
     background-color: transparent;
     height: 788px;
-    left: 613px;
+    left: 613px; 
     position: absolute;
+    top: 0px;
+    width: 827px;
   }
-  
-  @media (max-width: 768px) {
-    .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
-    background-color: transparent;
-    height: 600px;
-    left: 813px;
-    position: absolute;
-    top: 100px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .frame-1 .jfnjkfndcfjkb-1-VxPVnb {
-      background-color: transparent;
-      height: 600px;
-      left: 903px;
-      position: absolute;
-      top: 100px;
-    }
-  }
-  
-  .new-div {
-    background-color: transparent;
-    height: 788px;
-    left: 613px;
-    position: absolute;
-  }
-  
-  @media (max-width: 768px) {
-    .new-div {
-    background-color: transparent;
-    height: 600px;
-    left: 813px;
-    position: absolute;
-    top: 100px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .new-div {
-      background-color: transparent;
-      height: 300px;
-      width: 300px;
-      left: 303px;
-      position: absolute;
-      top: 50px;
-    }
-  }
-
   
   .frame-1 .skill-expertise-VxPVnb {
     background-color: transparent;
@@ -794,7 +669,7 @@ j.turbo-progress-bar {
   
   .frame-1 .x65e09abf952724557f01-Lk3E3L {
     height: 201px;
-    left: 628px;
+    left: 633px;
     top: 1636px;
     width: 201px;
   }
@@ -1053,7 +928,7 @@ j.turbo-progress-bar {
     line-height: normal;
     position: absolute;
     text-align: left;
-    top: 2953px;
+    top: 2934px;
     width: auto;
   }
   
@@ -1084,7 +959,8 @@ j.turbo-progress-bar {
     white-space: nowrap;
     width: auto;
   }
-
+  </style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><style id="action-links-styles">
+  @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
   
   #anima-interface{
     transition: all 0.5s ease-in-out;
@@ -1389,192 +1265,351 @@ j.turbo-progress-bar {
     }
   }
   
-  /* Basic styles for navigation links */
-.about-me-VxPVnb, .education-VxPVnb, .skill-expertise-VxPVnb {
-    display: inline-block; /* To allow scaling effect */
-    margin: 10px; /* Space between items */
-    padding: 10px 20px; /* Padding for click area */
-    color: white; /* Text color */
-    background-color: rgba(3, 3, 3, 0.2); /* Background for visibility */
-    border-radius: 5px; /* Rounded corners */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-}
-
-/* Hover effect */
-.about-me-VxPVnb:hover, .education-VxPVnb:hover, .skill-expertise-VxPVnb:hover {
-    transform: scale(1.1); /* Scale up on hover */
-    color: rgb(0, 0, 0);
-    background-color: rgba(255, 255, 255, 0.3); /* Change background on hover */
-}
-.my-work-VxPVnb:hover {
-    transform: scale(1.1); /* Scale up on hover */
-    color: rgb(102, 2, 2);
-}
-
-
-body {
-    margin: 0;
-    background: rgb(39, 40, 41);
-    overflow-x: hidden;
-}
-
-.container-center-horizontal {
-    display: flex;
-    justify-content: center;
+  </style><style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  
+  @import url("https://fonts.googleapis.com/css?family=Alatsi:400|Konkhmer+Sleokchher:400|Anek+Kannada:400|ABeeZee:400|Inter:400|Alegreya+Sans:400");
+  
+  /* The following line is used to measure usage of this code. You can remove it if you want. */
+  @import url("https://px.animaapp.com/67270ee1f80466cf849458e3.67270ee1f80466cf849458e6.2P1SGAi.hch.png");
+  
+  
+  .screen textarea:focus,
+  .screen input:focus {
+    outline: none;
+  }
+  
+  .screen * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  
+  .screen div {
+    -webkit-text-size-adjust: none;
+  }
+  
+  .component-wrapper a {
+    display: contents;
+    pointer-events: auto;
+    text-decoration: none;
+  }
+  
+  .component-wrapper * {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  
+  .component-wrapper a *,
+  .component-wrapper input,
+  .component-wrapper video,
+  .component-wrapper iframe {
+    pointer-events: auto;
+  }
+  
+  .component-wrapper.not-ready,
+  .component-wrapper.not-ready * {
+    visibility: hidden !important;
+  }
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .full-width-a {
+    width: 100%;
+  }
+  
+  .full-height-a {
+    height: 100%;
+  }
+  
+  .container-center-vertical {
     align-items: center;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .container-center-vertical > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .auto-animated div {
+    --z-index: -1;
     opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-.frame-1 {
+    position: absolute;
+  }
+  
+  .auto-animated input {
+    --z-index: -1;
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .auto-animated .container-center-vertical,
+  .auto-animated .container-center-horizontal {
+    opacity: 1;
+  }
+  
+  .overlay-base {
+    display: none;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .overlay-base.animate-appear {
+    align-items: center;
+    animation: reveal 0.3s ease-in-out 1 normal forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  .overlay-base.animate-disappear {
+    animation: reveal 0.3s ease-in-out 1 reverse forwards;
+    display: block;
+    opacity: 1;
+    pointer-events: none;
+  }
+  
+  .overlay-base.animate-disappear * {
+    pointer-events: none;
+  }
+  
+  @keyframes reveal {
+    from { opacity: 0 }
+   to { opacity: 1 }
+  }
+  
+  .animate-nodelay {
+    animation-delay: 0s;
+  }
+  
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  
+  .align-self-flex-end {
+    align-self: flex-end;
+  }
+  
+  .align-self-flex-center {
+    align-self: flex-center;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .valign-text-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .listeners-active,
+  .listeners-active * {
+    pointer-events: auto;
+  }
+  
+  .hidden,
+  .hidden * {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  
+  .listeners-active-click,
+  .listeners-active-click * {
+    cursor: pointer;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  :root { 
+    --amber: #f8bf05;
+    --black: #000000;
+    --cape-cod: #414242;
+    --seashell: #f3f0f04f;
+    --shark: #272829;
+    --silver: #bcbcbc;
+    --white: #ffffff;
+   
+    --font-size-l: 48px;
+    --font-size-m: 40px;
+    --font-size-s: 32px;
+    --font-size-xl: 55px;
+    --font-size-xs: 30px;
+    --font-size-xxl: 64px;
+    --font-size-xxxl: 96px;
+   
+    --font-family-abeezee: "ABeeZee", Helvetica;
+    --font-family-alatsi: "Alatsi", Helvetica;
+    --font-family-alegreya_sans: "Alegreya Sans", Helvetica;
+    --font-family-anek_kannada: "Anek Kannada", Helvetica;
+    --font-family-inter: "Inter", Helvetica;
+    --font-family-konkhmer_sleokchher: "Konkhmer Sleokchher", Helvetica;
+  }
+  .abeezee-normal-white-32px {
+    color: var(--white);
+    font-family: var(--font-family-abeezee);
+    font-size: var(--font-size-s);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alegreyasans-normal-white-40px {
+    color: var(--white);
+    font-family: var(--font-family-alegreya_sans);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-cape-cod-64px {
+    color: var(--cape-cod);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .anekkannada-normal-silver-30px {
+    color: var(--silver);
+    font-family: var(--font-family-anek_kannada);
+    font-size: var(--font-size-xs);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .alatsi-normal-white-96px {
+    color: var(--white);
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  :root {
+  }
+  
+  
+  /* screen - frame-2 */
+  
+  .frame-2 {
+    background-color: var(--shark);
+    height: 1518px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .frame-2 .title-GB5BqJ {
+    background-color: transparent;
+    color: transparent;
+    font-family: var(--font-family-alatsi);
+    font-size: var(--font-size-xxxl);
+    font-style: normal;
+    font-weight: 400;
+    height: auto;
+    left: 159px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
+    top: 265px;
+    width: auto;
+  }
+  
+  .frame-2 .span0-lKS5wZ {
+    font-style: normal;
+  }
+  
+  .frame-2 .span1-lKS5wZ {
+    color: var(--amber);
+    font-style: normal;
+  }
+  
+  .frame-2 .highly-creative-and-GB5BqJ {
+    background-color: transparent;
+    height: auto;
+    left: 87px;
+    letter-spacing: 0.00px;
+    line-height: normal;
+    position: absolute;
     text-align: center;
-}
-
-/* Animation for fading in */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Button hover effect */
-a div {
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-a div:hover {
-    transform: translateY(-5px);
-    background-color: rgba(255, 255, 255, 0.1); /* Lighten background on hover */
-}
-
-/* Add a scale effect to images on hover */
-img {
-    transition: transform 0.3s ease;
-}
-
-img:hover {
-    transform: scale(1.05); /* Slightly enlarge image on hover */
-}
-
-/* Skill bars animation */
-.my-skill-VxPVnb {
-    margin: 20px 0;
-}
-
-.x90-VxPVnb,
-.x85-VxPVnb,
-.x70-VxPVnb,
-.x65-VxPVnb {
-    transition: width 1s ease;
-}
-
-/* Initial state of the skill bars */
-.x90-VxPVnb {
-    width: 0;
-}
-
-.x85-VxPVnb {
-    width: 0;
-}
-
-.x70-VxPVnb {
-    width: 0;
-}
-
-.x65-VxPVnb {
-    width: 0;
-}
-
-/* Triggering animation with delay */
-.container-center-horizontal {
-    animation: fadeIn 1s forwards;
-}
-
-@keyframes skillBar {
-    from {
-        width: 0;
-    }
-    to {
-        width: 90%; /* Change this to the desired width */
-    }
-}
-
-@keyframes skillBar85 {
-    from {
-        width: 0;
-    }
-    to {
-        width: 85%; /* Change this to the desired width */
-    }
-}
-
-@keyframes skillBar70 {
-    from {
-        width: 0;
-    }
-    to {
-        width: 70%; /* Change this to the desired width */
-    }
-}
-
-@keyframes skillBar65 {
-    from {
-        width: 0;
-    }
-    to {
-        width: 65%; /* Change this to the desired width */
-    }
-}
-
-/* Skill bars */
-.x90-VxPVnb {
-    animation: skillBar 1s forwards 0.5s; /* Delayed start */
-}
-
-.x85-VxPVnb {
-    animation: skillBar85 1s forwards 1s; /* Delayed start */
-}
-
-.x70-VxPVnb {
-    animation: skillBar70 1s forwards 1.5s; /* Delayed start */
-}
-
-.x65-VxPVnb {
-    animation: skillBar65 1s forwards 2s; /* Delayed start */
-}
-
-
-/* Keyframes for slide-in animation */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hover effect */
-.title-VxPVnb:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    color: #ffcc00; /* Change color on hover (you can choose any color) */
-}
-.graphic-designer-VxPVnb:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    color: #ffcc00; /* Change color on hover (you can choose any color) */
-}
-
-/* Ensure the title appears after the container animation */
-.container-center-horizontal {
-    animation: fadeIn 1s forwards;
-    animation-delay: 0.5s; /* Delay the container animation */
-}
-
-
-
+    top: 497px;
+    width: 1234px;
+  }
+  
+  .frame-2 .vector-1-GB5BqJ {
+    background-color: transparent;
+    height: 24px;
+    left: 350px;
+    position: absolute;
+    top: 494px;
+    width: 14px;
+  }
+  
+  .frame-2 .vector-2-GB5BqJ {
+    background-color: transparent;
+    height: 24px;
+    left: 360px;
+    position: absolute;
+    top: 494px;
+    width: 14px;
+  }
+  
+  .frame-2 .line-2-GB5BqJ {
+    background-color: transparent;
+    height: 364px;
+    left: 291px;
+    position: absolute;
+    top: 362px;
+    width: 5px;
+  }
+  
+  .frame-2 .line-3-GB5BqJ {
+    background-color: transparent;
+    height: 615px;
+    left: 1309px;
+    position: absolute;
+    top: 630px;
+    width: 5px;
+  }
+  </style><meta charset="utf-8"><meta name="viewport" content="width=1440, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"></head><body style="margin: 0px; background: rgb(39, 40, 41); overflow-x: hidden;" dark-scroll=""><input type="hidden" id="anPageName" name="page" value="frame-2"><div class="container-center-horizontal"><div class="frame-2 screen " data-id="132:5"><h1 class="title-GB5BqJ" data-id="132:14"><span class="span0-lKS5wZ alatsi-normal-white-96px">About </span><span class="span1-lKS5wZ">me</span></h1><p class="highly-creative-and-GB5BqJ alegreyasans-normal-white-40px" data-id="132:16">Highly creative and multi talented Graphic <br>designer with extensive experience in print <br>design.Exceptional collaborative and inter <br>personal skills, dynamic team player with <br>well developed writtern and verbal <br>communication abilities.</p><img class="vector-1-GB5BqJ" data-id="134:2" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/vector-1.svg" alt="Vector 1"><img class="vector-2-GB5BqJ" data-id="134:3" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/vector-2.svg" alt="Vector 2"><img class="line-2-GB5BqJ" data-id="139:34" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/line-2-1.svg" alt="Line 2"><img class="line-3-GB5BqJ" data-id="139:35" src="https://cdn.animaapp.com/projects/67270ee2f80466cf849458e8/releases/67270f166be13857ea5c6608/img/line-3-1.svg" alt="Line 3"></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="anima-interface" data-turbo-permanent="true" class="idle"><!---->
+          </body></html>
