@@ -597,7 +597,7 @@ j.turbo-progress-bar {
 @media screen and (max-width: 480px) {
   .title-VxPVnb {
       font-size: 80px; /* Significantly reduce font size */
-      left: 542px; /* Adjust left position */
+      left: 540px; /* Adjust left position */
       top: 380px; /* Adjust top position */
       width: 300px; /* Adjust width */
       text-align: center; /* Center the text */
@@ -670,7 +670,7 @@ j.turbo-progress-bar {
       height: 600px;
       left: 903px;
       position: absolute;
-      top: 100px;
+      top: 140px;
     }
   }
   
@@ -1662,5 +1662,68 @@ img:hover {
     left: 1132px;
   }
 
+  .rectangle-17-VxPVnb{
+    left: 627px;
+  }
+
+  .my-work-VxPVnb{
+    left: 820px;
+  }
+
+  .indesign-VxPVnb {
+    left: 550px;
+  }
+  .ilustrator-VxPVnb {
+    left: 550px;
+  }
+  .photoshop-VxPVnb {
+    left: 550px;
+  }
+  .primer-pro-VxPVnb {
+    left: 550px;
+  }
+  .figma-VxPVnb {
+    left: 550px;
+  }
+  .xd-VxPVnb {
+    left: 550px;
+  } 
+  .line-9-VxPVnb{
+    left: 720px;
+  }
+  .line-10-VxPVnb{
+    left: 720px;
+  }
+  .line-11-VxPVnb{
+    left: 720px;
+  }
+  .line-12-VxPVnb{
+    left: 720px;
+  }
+  .line-13-VxPVnb{
+    left: 720px;
+  }
+  .line-14-VxPVnb{
+    left: 720px;
+  }
+
+  .x90-VxPVnb{
+    left: 1280px;
+  }
+  .x85-VxPVnb{
+    left: 1280px;
+  }
+  .x70-VxPVnb{
+    left: 1280px;
+  }
+  .x65-VxPVnb{
+    left: 1280px;
+  }
+  .x90-5ArFWQ{
+    left: 1280px;
+  }
+  .x85-5ArFWQ{
+    left: 1280px;
+  }
 
 }
